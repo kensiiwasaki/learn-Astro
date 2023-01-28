@@ -1,9 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
+import Children from '../components/Children.astro';
 
 // 変数・定数をここで定義できる
 const title = "Welcome to Astro"
+
+// もちろん配列も定義できる
+const langs = ["JavaScript", "Ruby", "Java", "Python", "C++", "Go"]
 ---
 
 <!-- そのまま使える -->
@@ -12,12 +16,39 @@ const title = "Welcome to Astro"
 		<!-- PropsはReact同様の記述 -->
 		<Header text={title} />
 	</main>
+	<!-- propsにtrueを渡す -->
+	<Children bool={false}>
+		<!-- <p>children的なやつ完成〜</p> -->
+	</Children>
+
+	<div>
+		<ul>
+			<!-- mapもJSX同様の記述で使用可能 -->
+			{langs.map((lang) => (
+				// フラグメントも使えるっぽい
+				<>			
+					<li>{lang}</li>				
+				</>
+			))}
+		</ul>
+	</div>
 </Layout>
 
 <style>
 	main {
-		margin: auto;
-		padding: 1.5rem;
-		max-width: 60ch;
+		text-align: center;
+	}
+	div {
+		text-align: center;
+		display: flex;
+		justify-content: center;
+	}
+	ul {
+		text-align: center;
+		padding: 30px;
+		border: 1px solid black;
+	}
+	li {
+		list-style: none;
 	}
 </style>
