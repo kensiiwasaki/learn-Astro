@@ -1,0 +1,39 @@
+---
+export interface Props {
+  bool?: boolean;
+}
+
+const { bool } = Astro.props;
+---
+
+<!-- 三項演算子はJSXと同様に使用できる -->
+{bool ? 
+	(
+		// slotがJSXで言うところのchildrenにあたる
+		<div class="true">
+			<slot>
+				<p>childrenがないよ〜</p>
+			</slot>
+		</div>
+	)
+  :
+  (
+		<div class="false">
+			<slot>
+				<p>childrenがないよ〜</p>
+			</slot>
+		</div>
+	)
+}
+
+<style>
+	div {
+		text-align: center;
+	}
+	.true {
+		color: red;
+	}
+	.false {
+		color: blue;
+	}
+</style>
