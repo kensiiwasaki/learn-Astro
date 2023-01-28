@@ -1,12 +1,15 @@
 ---
+// 型定義
 export interface Props {
     text: string;
 }
 
+// ここでPropsを受け取る
 const { text } = Astro.props;
 ---
 
 <div>
+    <!-- そのまま使える -->
     <h1>{text}</h1>
 </div>
 

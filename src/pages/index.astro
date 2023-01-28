@@ -2,11 +2,14 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 
+// 変数・定数をここで定義できる
 const title = "Welcome to Astro"
 ---
 
+<!-- そのまま使える -->
 <Layout title={title}>
 	<main>
+		<!-- PropsはReact同様の記述 -->
 		<Header text={title} />
 	</main>
 </Layout>
